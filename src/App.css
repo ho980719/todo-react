@@ -52,11 +52,30 @@ body > #root > div {
 .todo-input-box {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
+    margin-top: auto;
 }
 
 .todo-input-wrap {
     position: relative;
     width: 80%;
+}
+
+.todo-add-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: auto;
+    width: 100%;
+    border: 2px dashed  black;
+    padding: 15px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+.todo-add-btn:hover {
+    /*background-color: #cfe2ff;*/
+    /*transition: 1s;*/
 }
 
 .todo-input {
@@ -79,6 +98,6 @@ body > #root > div {
     text-align: center;
     cursor: pointer;
     padding: 6px;
-    top: 7px;
+    top: 5px;
     right: 7px;
 }
