@@ -4,22 +4,32 @@ import {Reset} from "styled-reset";
 import {Route, Routes} from "react-router-dom";
 import {TodoCalendar} from "./component/TodoCalendar";
 import {TodoView} from "./component/TodoView";
+import {Login} from "./component/Login";
 
 function App() {
-  return (
-    <>
-        <Reset/>
-        <div className="App">
-            <Routes>
-                <Route path='/' element={<Todo/>}/>
-                <Route path='/todo/list' element={<Todo/>}/>
-                <Route path='/todo/view' element={<TodoView/>}/>
-                <Route path='/calender' element={<TodoCalendar/>}/>
-                <Route path="/*" element={<div>Fail!</div>} />
-            </Routes>
-        </div>
-    </>
-  );
+    // @todo redux store 관리
+    const login = 0;
+    return (
+        <>
+            <Reset/>
+            <div className="App">
+                <div className='todo-note'>
+                    <div className='todo-title'>
+                        <h1>NOTE.</h1>
+                    </div>
+                    <div className='todo-container'>
+                        <Routes>
+                            <Route path='/' element={login ? <Todo/> : <Login/>}/>
+                            <Route path='/todo/list' element={<Todo/>}/>
+                            <Route path='/todo/view' element={<TodoView/>}/>
+                            <Route path='/calender' element={<TodoCalendar/>}/>
+                            <Route path="/*" element={<div>404 Not Found!</div>}/>
+                        </Routes>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 }
 
 export default App;
