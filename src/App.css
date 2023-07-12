@@ -104,7 +104,7 @@ body > #root > div {
     text-align: center;
     cursor: pointer;
     padding: 6px;
-    top: 5px;
+    top: 7px;
     right: 7px;
 }
 
@@ -112,4 +112,13 @@ body > #root > div {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.todo-action-btn {
+    cursor: pointer;
+}
+
+.todo-action-btn:hover {
+    color: #ee0024;
+    transition: 0.4s;
 }

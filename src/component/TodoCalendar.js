@@ -1,17 +1,19 @@
 import {useState} from "react";
 import Calendar from 'react-calendar';
 import '../Calendar.css';
+import {defaultFormatDate} from "../lib/Util";
+import {useNavigate} from "react-router-dom";
 export const TodoCalendar = () => {
-    const [value, onChange] = useState(new Date());
+    const [date, setDate] = useState(new Date());
+    const navigate = useNavigate();
+    const onDateChange = (newDate) => {
+        setDate(newDate);
+        navigate(`/todo/list/${defaultFormatDate(newDate)}`)
+    }
 
     return (
-        <div className='todo-note'>
-            <div className='todo-title'>
-                <h1>CALENDER.</h1>
-            </div>
-            <div className='todo-list-box'>
-                <Calendar onChange={onChange} value={value} />
-            </div>
-        </div>
+        <>
+            <Calendar onChange={onDateChange} value={date} />
+        </>
     )
 }

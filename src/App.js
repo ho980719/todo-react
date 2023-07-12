@@ -8,7 +8,7 @@ import {Login} from "./component/Login";
 
 function App() {
     // @todo redux store 관리
-    const login = 0;
+    const login = 1;
     return (
         <>
             <Reset/>
@@ -19,8 +19,8 @@ function App() {
                     </div>
                     <div className='todo-container'>
                         <Routes>
-                            <Route path='/' element={login ? <Todo/> : <Login/>}/>
-                            <Route path='/todo/list' element={<Todo/>}/>
+                            <Route path='/' element={login ? <TodoCalendar/> : <Login/>}/>
+                            <Route path='/todo/list/:date' element={<Todo/>}/>
                             <Route path='/todo/view' element={<TodoView/>}/>
                             <Route path='/calender' element={<TodoCalendar/>}/>
                             <Route path="/*" element={<div>404 Not Found!</div>}/>
