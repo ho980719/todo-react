@@ -43,16 +43,22 @@ body > #root > div {
 
 .todo-list li {
     font-weight: bold;
-    padding: 10px 10px 5px 0;
+    padding: 10px 10px 10px 0;
     border-bottom: 1px solid black;
     display: flex;
     justify-content: space-between;
 }
 
 .todo-text-wrap {
+    flex: auto;
+    margin-left: 7px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    min-height: 35px;
+}
+
+.todo-text-wrap p {
+    flex: auto;
 }
 
 .todo-input-box {
@@ -118,7 +124,32 @@ body > #root > div {
     cursor: pointer;
 }
 
-.todo-action-btn:hover {
+.hover-green:hover {
+    color: green;
+    transition: 0.4s;
+}
+
+.hover-red:hover {
     color: #ee0024;
     transition: 0.4s;
+}
+
+.todo-title-input {
+    width: 100%;
+    margin-right: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.todo-action-btn-wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 65px;
+}
+
+.todo-complete {
+    color: #a4a1a1;
+    text-decoration: line-through;
 }
