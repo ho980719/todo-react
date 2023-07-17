@@ -103,7 +103,23 @@ export const Todo = () => {
                     return false;
                 });
         }
-        
+    }
+
+    const addTodo = async () => {
+        // validation
+        if ($('#title').val() == '') {
+            alert('할걸 입력해줘.');
+            return false;
+        }
+        // call api
+        await request.post(`/todos/create`, {})
+            .then((response) => {
+                if (response.data.statusCode != 200)
+                    throw new Error(response.data.payload.errorMessage);
+            }).catch((e) => {
+                alert(e.message)
+                return false;
+            });
     }
 
     return (
@@ -144,7 +160,7 @@ export const Todo = () => {
                             })
                             : <div>아무것도 안하게?</div>
                     }
-                    <li key='5'>
+                    {/*<li key='5'>
                         <div className='todo-text-wrap'>
                             <input onChange={() => {
                             }}
@@ -162,13 +178,15 @@ export const Todo = () => {
                             }}
                                   className='material-symbols-outlined todo-action-btn hover-red'>delete</span>
                         </div>
-                    </li>
+                    </li>*/}
                 </ul>
             </div>
             <div className='todo-input-box'>
                 <div className='todo-input-wrap'>
-                    <input type='text' className='todo-input' placeholder='할거 입력해줘'/>
-                    <span className='material-symbols-outlined enter-circle'>arrow_forward</span>
+                    <input type='text' id='title' className='todo-input' placeholder='할거 입력해줘'/>
+                    <span onClick={(e) => {
+                        addTodo();
+                    }} className='material-symbols-outlined enter-circle'>arrow_forward</span>
                 </div>
             </div>
         </>
