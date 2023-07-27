@@ -1,8 +1,12 @@
 import axios from "axios";
 import {request} from "../lib/request";
 import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {loginAction} from "../slice/memberSlice";
 
 export const Login = () => {
+    const dispatch = useDispatch();
+
     const navigate = useNavigate();
     const login = async () => {
         let member = document.getElementById('form-member');
@@ -14,9 +18,10 @@ export const Login = () => {
                 password: member.password.value,
             }
         }).then((response) => {
+            dispatch(loginAction());
             if (response.data.statusCode != 200)
                 throw new Error(response.data.payload.errorMessage);
-            else navigate('/todo/list');
+            // else navigate('/todo/list');
         }).catch((e) => {
             console.error(e)
             alert(e.message)

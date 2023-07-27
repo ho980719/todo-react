@@ -5,10 +5,13 @@ import {Route, Routes} from "react-router-dom";
 import {TodoCalendar} from "./component/TodoCalendar";
 import {TodoView} from "./component/TodoView";
 import {Login} from "./component/Login";
+import {useDispatch, useSelector} from "react-redux";
+import {memberSlice} from "./slice/memberSlice";
 
 function App() {
     // @todo redux store 관리
-    const login = 1;
+    const login = useSelector(state => state.member.login);
+    console.log(login)
     return (
         <>
             <Reset/>
